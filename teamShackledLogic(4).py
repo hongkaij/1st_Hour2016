@@ -28,6 +28,9 @@ def move(my_history, their_history, my_score, their_score):
     
     return 'c'
 
+    if their_score>0:
+        return 'b'
+        
     
 def test_move(my_history, their_history, my_score, their_score, result):
     '''calls move(my_history, their_history, my_score, their_score)
