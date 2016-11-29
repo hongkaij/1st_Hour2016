@@ -107,7 +107,7 @@ def play_iterative_rounds(player1, player2):
     but with much longer strings 
     '''
     number_of_rounds = random.randint(100, 200)
-    moves1 = ''
+    moves1 = '' 
     moves2 = ''
     score1 = 0
     score2 = 0
