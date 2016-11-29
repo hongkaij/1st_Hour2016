@@ -8,7 +8,7 @@
 
 team_name = "Shackled_Logic" # Only 10 chars displayed.
 strategy_name = 'No Second Chances'
-strategy_description = 'How does this strategy decide?'
+strategy_description = 'Collude, but retaliate'
     
 def move(my_history, their_history, my_score, their_score):
     ''' Arguments accepted: my_history, their_history are strings.
