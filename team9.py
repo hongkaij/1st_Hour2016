@@ -19,9 +19,15 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
     movee=['b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b']
+<<<<<<< HEAD
     b=random.choice(movee)
         
     return 'b'
+=======
+    play=random.choice(movee)
+        
+    return play
+>>>>>>> refs/heads/Testing-Branch
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
