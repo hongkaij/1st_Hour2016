@@ -19,9 +19,9 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
     movee=['b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b','b']
-    play=random.choice(movee)
+    b=random.choice(movee)
         
-    return play
+    return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
