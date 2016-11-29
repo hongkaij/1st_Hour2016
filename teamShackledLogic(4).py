@@ -6,7 +6,7 @@
 #     move: A function that returns 'c' or 'b'
 ####
 
-team_name = "Shackled Logic" # Only 10 chars displayed.
+team_name = "Shackled_Logic" # Only 10 chars displayed.
 strategy_name = 'No Second Chances'
 strategy_description = 'How does this strategy decide?'
     
