@@ -21,12 +21,21 @@ def all_same(items):
 
 def graph_data(points):
     dist = []
+    dist2 = []
     for x in range(0, len(points)-1):
         dist.append(points[x+1] - points[x])
+    print dist
+    dist = dist*80
+    for x in range(len(points), 200):
+        points.append(points[x-1] + dist[x])
+    print points
+    
+    for x in range(0, len(points)-1):
+        dist2.append(points[x+1] - points[x])
+    
     if all_same(dist):
         return dist
-    else:
-        return "NONE"
+    return "NONE"
     
     # print "Dist: " + str(dist)
 
@@ -40,6 +49,7 @@ def identify_trend(array, string):
         if dist is not "NONE":
             count = dist[0]
             return "LINEAR:" + str(count)
+    return "UNKNOWN"
     # print "Indexs Betrayed:" + str(betray_index)
     
 def move(my_history, their_history, my_score, their_score):
@@ -50,7 +60,6 @@ def move(my_history, their_history, my_score, their_score):
     Returns 'c' or 'b'. 
     '''
     
-    ''' Alg #1
     times_colluded = 0
     has_betrayed = False
     if len(my_history) >= 10 and has_betrayed is False:
@@ -60,19 +69,15 @@ def move(my_history, their_history, my_score, their_score):
 	if has_betrayed == False: 
             return 'c'
     return 'b'
-    '''
     
+    
+    '''
     first_ten = []
     first_ten_string = ""
-    ''' 
-    BETRAY for always betray
-    COLLUDE for always collude
-    BC for betray collude
-    CB for collude betray
-    '''
+   
     global s_id
     global multiplyer
-    if len(my_history) == 11:
+    if len(their_history) >= 11:
         for x in their_history:
             first_ten.append(x)
             first_ten_string += x
@@ -83,14 +88,16 @@ def move(my_history, their_history, my_score, their_score):
             for x in range(colon_index+1, len(s_id)):
                 multiplyer += s_id[x]
             multiplyer = int(float(multiplyer))
-            print len(their_history)
-            print multiplyer
-    elif "LINEAR" in s_id:
+    if "LINEAR" in s_id:
+        print "len: " + str(len(their_history))
+        print "multi: " + str(multiplyer)
+        print "div: " + str(len(their_history) % multiplyer)
         if len(their_history) % multiplyer == 0:
+            print "Return b"
             return "b"
-        else:
-            return "c"    
+        return "c"    
     return "b"
+    '''
 	       
     # my_history: a string with one letter (c or b) per round that has been played with this opponent.
     # their_history: a string of the same length as history, possibly empty. 
@@ -121,7 +128,7 @@ def test_move(my_history, their_history, my_score, their_score, result):
 if __name__ == '__main__':
      
     # Test 1: Betray on first move.
-    print test_move(my_history='bbbbbbbbbbbbbbb', their_history='ccbccbccbccbccb', my_score=0, their_score=0, result='b')
+    print test_move(my_history='bbbbbbbbbbbb', their_history='bbcbbcbbcbbc', my_score=0, their_score=0, result='b')
     
     if test_move(my_history='',
               their_history='', 
